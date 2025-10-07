@@ -1,0 +1,76 @@
+
+# class chatReq(BaseModel):
+#     sender_id:str
+#     receiverId:str
+#     time:str
+#     date:str
+#     msg_text:str
+#     msg_type:str  
+        
+# @app.post("/chat")
+# async def chat_websockets(data:chatReq):
+#     # await websocket.accept()
+#     sender_id=data.sender_id
+#     print(data)
+
+#     try:
+#         print("try")
+#         message=data
+#         print(message)
+#         print(message.date)
+#         receiverId = message.receiverId
+        
+#         chatId = merge_sorted_uuid_segments(sender_id,receiverId)
+#         print(chatId)
+#         msg_type=message.msg_type
+#         msg_text=message.msg_text
+#         date=message.date
+#         time=message.time
+#         receiverSettings=await fetch_receiver_data(receiverId)
+#         message_format =receiverSettings["message_format"]
+#         receiver_lang =receiverSettings["receiver_lang"]
+#         trans_message=''
+#         trans_meadia_url=''
+#         if (receiver_lang=='None' and (message_format=='None' or message_format=='Text')):
+#             print("1")
+#             trans_message=msg_text
+#         else:
+#             print("2")
+#             trans_text=await translate_texts(msg_text,receiver_lang)
+#             if(receiver_lang and (receiver_lang=='None' or message_format=='Text')):
+#                 print("3")
+#                 trans_message=trans_text
+#             elif(receiver_lang and (message_format=='Audio')):
+#                 print("4")
+#                 trans_meadia_data=await text_to_audios(msg_text,receiver_lang)
+#                 trans_meadia_url=trans_meadia_data["audio_file"]
+#             else:
+#                 print("5")
+#                 trans_message=msg_text
+                
+#         await chat_collection.insert_one({
+#             "chat_id": chatId,
+#             "sender_id":sender_id,
+#             "receiver_id":receiverId,
+#             "message_type": msg_type,
+#             "message_text": msg_text,
+#             "media_url": "need to write function",
+#             "date": date,
+#             "time":time,
+#             "transformation":{
+#                 "message_type":message_format ,
+#                 "trans_message":trans_message,
+#                 "trans_meadia_url": trans_meadia_url
+#             },
+#             "created_at": datetime.utcnow() 
+#         })
+#         # if receiverId in active_connections:
+#         #     # Send message to the receiver
+#         #     await active_connections[receiverId].send_text(json.dumps(message))
+#     except Exception as e:
+#         # pass
+#         return e
+#         # Remove the connection on disconnect
+#         # del active_connections[sender_id]
+ 
+        

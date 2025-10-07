@@ -1,0 +1,4 @@
+# dependencies
+/static
+/venv
+/__pycache__
