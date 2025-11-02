@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+motor
+bcrypt
+cryptography
+pydub
+googletrans==4.0.0-rc1
+gTTS
+bson
+language-tool-python
+speechrecognition
+python-multipart
+pydantic_settings
+pydantic[email]
+uvicorn[standard]
+websockets

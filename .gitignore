@@ -1,5 +1,5 @@
 # dependencies
-/static
+/app/static
 /venv
 /__pycache__
 /trash
